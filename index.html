@@ -1,0 +1,61 @@
+<!doctype html>
+<html class="no-js" lang="">
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="x-ua-compatible" content="ie=edge">
+        <title></title>
+        <script src="js/main.js"></script>
+    </head>
+    <body>
+
+    <script type="text/javascript">
+
+        // use pront or form
+        usePrompter();
+        function usePrompter() {
+            confirmar=confirm("Tell me if you want Prompt");
+            if(confirmar)
+            {
+                var number= parseInt(prompt ("Write a number"));
+                doGame(number);
+            }else{
+                createInputandButton();
+            }
+        }
+
+        //checks whether the number entered ends or multiple of 7
+        function doGame(number) {
+            var multiples = [];
+            var count=0;
+            for (var i = 1; i <= number; i++) {
+                var auxi = i.toString();
+                if ((i % 7 == 0) || (auxi[auxi.length - 1] == "7")) {
+                    multiples[count] = i;
+                    count++;
+                }
+            }
+            console.log(multiples);
+        }
+
+        //make input and buton
+        function createInputandButton(){
+
+            // creacion del input text
+            var input = document.createElement("INPUT");input.setAttribute("type", "text");
+            input.setAttribute("value", "Ingresa un numero!");
+            document.body.appendChild(input);
+
+            // creacion del buton
+            var buton = document.createElement("BUTTON");var t = document.createTextNode("Aceptar");
+            buton.appendChild(t);
+            document.body.appendChild(buton);
+
+            //event when clicking
+            buton.onclick =function(){
+                doGame(input.value);
+                console.log(input.value);
+            };
+        }
+    </script>
+    </body>
+</html>
